@@ -1,4 +1,5 @@
 import streamlit as st
+from PIL import Image
 
 st.set_page_config(
     page_title="Picnic Pro",
@@ -10,23 +11,10 @@ st.set_page_config(
 # Assets Paths
 eduTourImg = 'assets\eduTour.webp'
 funActivityImg = 'assets\efunActivity.webp'
+eventsImg = 'assets\events.webp'
 
 locations = ["New Delhi", "Mumbai", "Lucknow", "Patna", "Jaipur", "Manali", "Kashmir", "Aligarh", "Noida", "Haryana", 'Mussoorie', 'test']
 
-# Below block is temporary we will use st.title 
-st.markdown(
-    """
-    <style>
-    body {
-        background-image: url('https://images.unsplash.com/photo-1542039174373-4efa3b3a9db8?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 st.markdown("<h1 style='text-align: center;'>Welcome to Picnic Pro</h1>", unsafe_allow_html=True)
 
@@ -52,18 +40,24 @@ if st.button("GENERATE PLANS"):
 
 st.write("---")
 st.write("## Suggested Activities")
-col1, col2, col3 = st.columns(3)
 
-with col1:
-    st.image(eduTourImg, caption="Edu Tour")
-with col2:
-    st.image(funActivityImg, caption="Fun Activities")
-with col3:
-    st.image(eduTourImg, caption="Events")
+left_col, main_col, right_col = st.columns([1,8,1])  
 
-# Feedback Form and Contact Us Section
+with main_col:
+    with st.container():
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            image = Image.open(eduTourImg)
+            st.image(image, caption='EduTour', width=300)
+        with col2:
+            image = Image.open(funActivityImg)
+            st.image(image, caption='EduTour', width= 300)
+        with col3:
+            image = Image.open(eventsImg)
+            st.image(image, caption='EduTour', width= 300)
+        
 st.write("### Get in Touch")
-
 col1, col2 = st.columns(2)
 
 with col1:
