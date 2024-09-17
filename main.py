@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 from PIL import Image
 
@@ -9,9 +10,9 @@ st.set_page_config(
 )
 
 # Assets Paths
-eduTourImg = 'assets\eduTour.webp'
-funActivityImg = 'assets\efunActivity.webp'
-eventsImg = 'assets\events.webp'
+eduTourImg = r'assets\eduTour.webp'
+funActivityImg = r'assets\efunActivity.webp'
+eventsImg = r'assets\events.webp'
 
 locations = ["New Delhi", "Mumbai", "Lucknow", "Patna", "Jaipur", "Manali", "Kashmir", "Aligarh", "Noida", "Haryana", 'Mussoorie', 'test']
 
@@ -48,15 +49,26 @@ with main_col:
         col1, col2, col3 = st.columns(3)
 
         with col1:
-            image = Image.open(eduTourImg)
-            st.image(image, caption='EduTour', width=300)
+            if os.path.isfile(eduTourImg):
+                image = Image.open(eduTourImg)
+                st.image(image, caption='EduTour', width=300)
+            else:
+                st.error(f"Unable to load the file: {eduTourImg}")
+
         with col2:
-            image = Image.open(funActivityImg)
-            st.image(image, caption='EduTour', width= 300)
+            if os.path.isfile(funActivityImg):
+                image = Image.open(funActivityImg)
+                st.image(image, caption='EduTour', width= 300)     
+            else:
+                st.error(f"Unable to load the file: {funActivityImg}")
+
         with col3:
-            image = Image.open(eventsImg)
-            st.image(image, caption='EduTour', width= 300)
-        
+            if os.path.isfile(eventsImg):
+                image = Image.open(eventsImg)
+                st.image(image, caption='EduTour', width= 300)               
+            else:
+                st.error(f"Unable to load the file: {eventsImg}")
+
 st.write("### Get in Touch")
 col1, col2 = st.columns(2)
 
