@@ -10,9 +10,9 @@ st.set_page_config(
 )
 
 # Assets Paths
-eduTourImg = r'assets\eduTour.webp'
-funActivityImg = r'assets\efunActivity.webp'
-eventsImg = r'assets\events.webp'
+eduTourImg = r'assets\01.jpg'
+funActivityImg = r'assets\02.jpg'
+eventsImg = r'assets\03.jpg'
 
 locations = ["New Delhi", "Mumbai", "Lucknow", "Patna", "Jaipur", "Manali", "Kashmir", "Aligarh", "Noida", "Haryana", 'Mussoorie', 'test']
 
@@ -51,21 +51,45 @@ with main_col:
         with col1:
             if os.path.isfile(eduTourImg):
                 image = Image.open(eduTourImg)
-                st.image(image, caption='EduTour', width=300)
+                st.image(image, width=300)
+                st.markdown(
+                    """
+                    <div style="text-align: center;">
+                        <h4 style="font-size:18px; font-weight:600;">Educational Tour</h4>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )     
             else:
                 st.error(f"Unable to load the file: {eduTourImg}")
 
         with col2:
             if os.path.isfile(funActivityImg):
                 image = Image.open(funActivityImg)
-                st.image(image, caption='EduTour', width= 300)     
+                st.image(image, width= 300)  
+                st.markdown(
+                    """
+                    <div style="text-align: center;">
+                        <h4 style="font-size:18px; font-weight:600;">Fun Activities</h4>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )        
             else:
                 st.error(f"Unable to load the file: {funActivityImg}")
 
         with col3:
             if os.path.isfile(eventsImg):
                 image = Image.open(eventsImg)
-                st.image(image, caption='EduTour', width= 300)               
+                st.image(image, width= 300)  
+                st.markdown(
+                    """
+                    <div style="text-align: center;">
+                        <h4 style="font-size:18px; font-weight:600;">Events For Children</h4>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )            
             else:
                 st.error(f"Unable to load the file: {eventsImg}")
 
