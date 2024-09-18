@@ -10,9 +10,9 @@ st.set_page_config(
 )
 
 # Assets Paths
-eduTourImg = r'assets\01.jpg'
-funActivityImg = r'assets\02.jpg'
-eventsImg = r'assets\03.jpg'
+eduTourImg = r'assets/01.jpg'
+funActivityImg = r'assets/02.jpg'
+eventsImg = r'assets/03.jpg'
 
 locations = ["New Delhi", "Mumbai", "Lucknow", "Patna", "Jaipur", "Manali", "Kashmir", "Aligarh", "Noida", "Haryana", 'Mussoorie', 'test']
 
